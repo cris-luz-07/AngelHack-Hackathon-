@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+  <title>Pay Checkin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777;
+  background-image: url("hambb.png");
+
+  }
+  #logo{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+/*  header{
+  background-image: url("logop.png");
+  background-repeat:no-repeat;
+  padding: 25px;
+  margin-left: 10px;
+  }
+  p{
+    font: 20px, sans-serif;
+    font-weight: bold;
+  }*/
+  
+ </style>
+  </head>
+  <body>
+    <header>
+<!--       <center>
+      <h2 id="name">
+        <script> 
+        var query = location.search.slice(1);
+        var partes = query.split('&');
+        var data = {};
+        var parte = partes[0];
+        var chaveValor = parte.split('=');
+        console.log(chaveValor);  
+        var nome = chaveValor[1];
+        console.log(nome);  
+        var preco = chaveValor[1];
+        //data[chave] = valor;
+        
+        document.getElementById('name').innerHTML = nome;
+        </script>
+      </h2>
+      </center> -->
+       <center>
+   <img id="logo"src="logop.png">
+   </center>
+    </header>
+    
+    <main>
+      <center>
+
+        <script type="text/javascript"
+          src="https://www.simplify.com/commerce/simplify.pay.js"></script>
+          <iframe id="form" name="my-hosted-form"
+          data-sc-key="sbpb_ZjMxZDRkNTgtYjBhYy00NGE4LWI1YWYtYWYxNzBkMzQ4M2Rm"
+          data-name=myParam.nome
+          data-description="Smooth tea with a rich jasmine bouquet"
+          data-reference="99999"
+          data-amount="3000"
+          data-color="#12B830"
+          height="600px"
+          width="500px"
+          data-masterpass="true"
+          data-redirect-url="http://paycheckin.habemus.website/obrigada.html">
+          </iframe>
+      </center>  
+      
+    </main>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+    
+    
+      <script>
+
+    function queryObj() {
+      var result = {}, keyValuePairs = location.search.slice(1).split("&");
+      keyValuePairs.forEach(function(keyValuePair) {
+          keyValuePair = keyValuePair.split('=');
+          result[decodeURIComponent(keyValuePair[0])] = decodeURIComponent(keyValuePair[1]) || '';
+      });
+      return result;
+    }
+    var myParam = queryObj();
+    var objeto = document.querySelector('#form');
+    objeto.setAttribute('data-name', myParam.nome);
+    objeto.setAttribute('data-amount', myParam.preco);
+    
+    var paramName = myParam.nome;
+    var paramPreco = myParam.preco;
+    </script>   
+  </body>
+</html>

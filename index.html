@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+  <title>Pay Checkin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777;
+  background-image: url("hambb.png");
+
+  }
+
+  p{
+     font-size: 18px;
+  }
+  .img-burg{
+   margin-top: 50px;
+  }
+
+ </style>
+</head>
+<body>
+<div class="col-sm-6">
+  <br><br> 
+ <a href="http://paycheckin.habemus.website/"><img class="img-responsive"  src="logo.png"></a> 
+<br><br> 
+<p>Não resistiu e veio comer o nosso hambúrguer!!!</p>
+<p>Dizem que temos o melhor do Brasil, mas um dia será o melhor do mundo.</p>
+<p>Então sem muito blábláblá, faça o login com o facebook e converse com o garçom mais educado que você conhecerá.</p>
+<br>
+ <div class="fb-login-button"  data-max-rows="1" data-size="xlarge"data-show-faces="false" onlogin="checkLoginState()" data-auto-logout-link="false">
+
+     
+   </div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.6&appId=995015413900016";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+ function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+  
+ function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+if (response.status === 'connected') {
+window.location.replace("http://m.me/1317026704991268");
+ } else if (response.status === 'not_authorized') {
+ document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+} else {
+ document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+  </script>
+<div class="col-sm-6">
+  <br><br><br><br> 
+<img class="img-responsive img-burg" src="f1.png"></div>
+</body>
+</html>
